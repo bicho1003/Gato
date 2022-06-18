@@ -39,6 +39,7 @@ begin
 
     OUTPUT_PROC : process(row_counter)
     begin
+        columnas <= (others => '0');
         columnas(3) <= '1';
 
         filas <= (others => '0');
