@@ -14,9 +14,7 @@ end entity Gato;
 architecture sim of Gato is
 
 begin
-
-
-
-
+    filas(3) <= '1';
+    columnas(3) <= '1'; 
 
 end architecture sim;
