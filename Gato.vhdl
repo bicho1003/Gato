@@ -26,7 +26,11 @@ begin
             if counter = clk_freq - 1 then
                 counter <= 0;
 
+<<<<<<< HEAD
                 row_counter <= row_counter + 1;
+=======
+                row_counter = row_counter + 1;
+>>>>>>> main
 
             else
                 counter <= counter + 1; 
