@@ -7,16 +7,14 @@ entity Gato is
     port(
         clk       : in std_logic;
 
-        filas     : out std_logic_vector(7 downto 0)  := (others <= '0');
-        columnas  : out std_logic_vector(7 downto 0)  := (others <= '0'));
+        filas     : out std_logic_vector(7 downto 0)  := (others => '0');
+        columnas  : out std_logic_vector(7 downto 0)  := (others => '0'));
 end entity Gato;
 
 architecture sim of Gato is
 
 begin
-
-
-
-
+    filas(3) <= '1';
+    columnas(3) <= '1'; 
 
 end architecture sim;
