@@ -13,10 +13,25 @@ end entity Gato;
 
 architecture sim of Gato is
 
-    signal clk_freq    : integer := 6e6;
-    signal counter     : integer;
+    constant clk_freq    : integer := 1e3; --Muliplexación
 
-    signal row_counter : unsigned(2 downto 0);
+    
+    signal counter     : integer; --Contador para el multiplexado               
+    signal row_counter : unsigned(2 downto 0); --Contador de filas en binario que luego se convierte en entero
+
+
+    type background_type is array (7 downto 0) of std_logic_vector(7 downto 0);
+    constant background : background_type := (
+        ('0','0','1','0','0','1','0','0'),
+        ('0','0','1','0','0','1','0','0'),
+        ('0','0','1','0','0','1','0','0'),
+        ('0','0','1','0','0','1','0','0'),
+        ('0','0','1','0','0','1','0','0'),
+        ('0','0','1','0','0','1','0','0'),
+        ('0','0','1','0','0','1','0','0'),
+        ('0','0','1','0','0','1','0','0')
+    );
+
 
 begin
     
@@ -39,8 +54,8 @@ begin
 
     OUTPUT_PROC : process(row_counter)
     begin
-        columnas <= (others => '0');
-        columnas(3) <= '1';
+        
+        columnas <= background(to_integer(row_counter));
 
         filas <= (others => '0');
         filas(to_integer(row_counter)) <= '1';
